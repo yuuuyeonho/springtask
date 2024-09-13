@@ -13,10 +13,12 @@ public class Department {
     @Column(name = "department_id")
     private Long id;
 
-    private Hospital hospital;
     private String name;
 
     private Long callNumber;
 
+    private Hospital hospital;
+
     private List<Doctor> doctors = new ArrayList<>();
+
 }

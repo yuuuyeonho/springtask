@@ -1,9 +1,6 @@
 package com.example.my_hospital.domain;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Getter;
 
 import java.util.ArrayList;
@@ -17,6 +14,10 @@ public class Hospital {
     @Column(name = "hospital_id")
     private Long id;
     private String name;
+
+    @Embedded
+    private Address address;
+
 
     private List<Department> departments = new ArrayList<>();
 }

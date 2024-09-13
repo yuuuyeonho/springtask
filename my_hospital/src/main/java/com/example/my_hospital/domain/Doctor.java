@@ -11,11 +11,13 @@ public class Doctor {
     @Id @GeneratedValue
     @Column(name = "doctor_id")
     private Long id;
+
     private String name;
 
-    private Hospital hospital;
-    private Department department;
+    private int career;
 
-    private int yaers;
+    private Hospital hospital;
+
+    private Department department;
 
 }
