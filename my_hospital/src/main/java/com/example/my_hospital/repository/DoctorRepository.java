@@ -15,5 +15,5 @@ public class DoctorRepository {
 
     public Doctor findOne(Long id) { return em.find(Doctor.class, id); }
 
-    
+
 }

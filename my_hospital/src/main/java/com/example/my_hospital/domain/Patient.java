@@ -5,6 +5,9 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Getter @Setter
 public class Patient {
@@ -19,4 +22,6 @@ public class Patient {
 
     private String gender;
 
+    @OneToMany(mappedBy = "patient")
+    private List<Reserve> reserves = new ArrayList<>();
 }

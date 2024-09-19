@@ -1,8 +1,6 @@
 package com.example.my_hospital.domain;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,8 +15,11 @@ public class Department {
 
     private Long callNumber;
 
+    @ManyToOne
+    @JoinColumn(name = "hospital_id")
     private Hospital hospital;
 
+    @OneToMany(mappedBy = "dapartment")
     private List<Doctor> doctors = new ArrayList<>();
 
 }

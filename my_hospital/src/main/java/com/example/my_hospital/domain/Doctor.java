@@ -4,6 +4,11 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import static jakarta.persistence.FetchType.LAZY;
+
 @Entity
 @Getter @Setter
 public class Doctor {
@@ -16,8 +21,22 @@ public class Doctor {
 
     private int career;
 
-    private Hospital hospital;
-
+    @ManyToOne(fetch = LAZY, cascade =  CascadeType.ALL)
+    @JoinColumn(name = "dapartment_id")
     private Department department;
 
+    @OneToMany(mappedBy = "reserve")
+    private List<Reserve> reserves = new ArrayList<>();
+
+
+    //==생성 메서드==//
+//    public void Doctor createDoctor(String name, int career, Department department, Reserve... reserves){
+//        Doctor doctor = new Doctor();
+//        doctor.setName(name);
+//        doctor.setCareer(career);
+//        doctor.setDepartment(department);
+//        for(Reserve reserve : reserves){
+//            reserve.
+//        }
+//    }
 }

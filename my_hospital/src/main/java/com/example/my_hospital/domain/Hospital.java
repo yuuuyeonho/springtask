@@ -18,6 +18,6 @@ public class Hospital {
     @Embedded
     private Address address;
 
-
+    @OneToMany(mappedBy = "Hospital")
     private List<Department> departments = new ArrayList<>();
 }
